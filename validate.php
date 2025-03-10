@@ -3,6 +3,11 @@ session_start();
 if (isset($_POST['submit'])) {
     $user = $_POST['username'];
     $pass = $_POST['pass'];
+    if ($user == "" || $pass == "") {
+        $_SESSION['status'] = 4;
+        header("Location: login.php");
+        return;
+    }
     $connection = mysqli_connect('', 'root', '', 'cftcenco');
     if ($connection) {
         $query = "SELECT * FROM zapatos_3k_admin WHERE username='$user' AND password='$pass'";

@@ -38,41 +38,55 @@ if (!isset($_SESSION['status'])) {
             </nav>
         </header>
         <main>
-            <?php
-            if (isset($_SESSION['status_task'])) {
-                if ($_SESSION['status_task'] == 1) {
-            ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <strong>Tarea añadida!</strong>
-                    </div>
-                <?php
-                } elseif ($_SESSION['status_task'] == 2) {
-                ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <strong>Problemas con creación de tarea</strong>
-                    </div>
-                <?php
-                } elseif ($_SESSION['status_task'] == 3) {
-                ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <strong>Error de conexión!</strong>
-                    </div>
-                <?php
-                } elseif ($_SESSION['status_task'] == 4) {
-                ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        <strong>Tarea eliminada!</strong>
-                    </div>
-            <?php
-                }
-            }
-            unset($_SESSION['status_task']);
-            ?>
             <div class="container-fluid">
+                <?php
+                if (isset($_SESSION['status_task'])) {
+                    if ($_SESSION['status_task'] == 1) {
+                ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Tarea añadida!</strong>
+                        </div>
+                    <?php
+                    } elseif ($_SESSION['status_task'] == 2) {
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Problemas con creación de tarea</strong>
+                        </div>
+                    <?php
+                    } elseif ($_SESSION['status_task'] == 3) {
+                    ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Error de conexión!</strong>
+                        </div>
+                    <?php
+                    } elseif ($_SESSION['status_task'] == 4) {
+                    ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Tarea eliminada!</strong>
+                        </div>
+                    <?php
+                    } elseif ($_SESSION['status_task'] == 5) {
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Las tareas deben tener un título!</strong>
+                        </div>
+                    <?php
+                    } elseif ($_SESSION['status_task'] == 6) {
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>El tiempo mínimo para una tarea es de 1 minuto!</strong>
+                        </div>
+                <?php
+                    }
+                }
+                unset($_SESSION['status_task']);
+                ?>
                 <div class="card mb-3">
                     <div class="card-header">Aquí se muestran tus tareas</div>
                     <form action="add_task.php" method="POST">

@@ -27,37 +27,50 @@ session_start();
 
 <body>
     <main>
-        <?php
-        if (isset($_SESSION['status'])) {
-            if ($_SESSION['status'] == 1) {
-        ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    <strong>Usuario o contraseña incorrectos!</strong>
-                </div>
-            <?php
-            } elseif ($_SESSION['status'] == 2) {
-            ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    <strong>Error de conexión!</strong>
-                </div>
-            <?php
-            } elseif ($_SESSION['status'] == 3) {
-            ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    <strong>Usuario creado existosamente! Ingresa a tu cuenta</strong>
-                </div>
-        <?php
-            }
-        }
-        unset($_SESSION['status']);
-        ?>
+
         <div class="container">
             <h1 class="text-center">Zapatos3000</h1>
             <div class="row justify-content-center">
-                <div class="card" style="width: 400px;">
+                <div class="col-xl-12" style="width: 400px;">
+                    <?php
+                    if (isset($_SESSION['status'])) {
+                        if ($_SESSION['status'] == 1) {
+                    ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>Usuario o contraseña incorrectos!</strong>
+                            </div>
+                        <?php
+                        } elseif ($_SESSION['status'] == 2) {
+                        ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>Error de conexión!</strong>
+                            </div>
+                        <?php
+                        } elseif ($_SESSION['status'] == 3) {
+                        ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>Usuario creado existosamente! Ingresa a tu cuenta</strong>
+                            </div>
+                        <?php
+                        } elseif ($_SESSION['status'] == 4) {
+                        ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>El usuario o contraseña no puede estar vacío</strong>
+                            </div>
+                    <?php
+                        }
+                    }
+                    unset($_SESSION['status']);
+                    ?>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-xl-12 card" style="width: 400px;">
                     <form action="validate.php" method="POST">
                         <div class="card-body">
                             <div style="text-align: center;"> <img class="card-img-top" src="img/zapato.png" style="width: 100px" alt="Title" /></div>
@@ -89,7 +102,10 @@ session_start();
                                     Ingresar
                                 </button>
                             </div>
-                            <a href="register.php">Crear Cuenta</a>
+                            <a href="register.php"><button type="button"
+                                    class="btn btn-primary">
+                                    Crear Cuenta
+                                </button></a>
                         </div>
                     </form>
                 </div>
