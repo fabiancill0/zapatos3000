@@ -88,7 +88,7 @@ if (!isset($_SESSION['status'])) {
                 unset($_SESSION['status_task']);
                 ?>
                 <div class="card mb-3">
-                    <div class="card-header">Aquí se muestran tus tareas</div>
+                    <div class="card-header">Creación de nuevas tareas</div>
                     <form action="add_task.php" method="POST">
                         <div class="card-body">
                             <div class="mb-3">
